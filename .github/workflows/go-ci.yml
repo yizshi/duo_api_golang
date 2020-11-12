@@ -15,10 +15,9 @@ jobs:
         uses: actions/setup-go@v1
         with:
           go-version: ${{ matrix.go-version }}
-      - name: Build with go
-        run: go build ./...
       - name: Lint with diff
         run: diff -u <(echo -n) <(gofmt -d .)
       - name: Test with go test
         run: go test -v -race ./...
-
+      - name: Build with go
+        run: go build ./...
